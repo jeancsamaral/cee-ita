@@ -20,7 +20,7 @@ export async function generateMetadata(props: Props) {
   if (post) {
     return {
       title: `${post.title || "Single Post Page"} | ${siteName}`,
-      description: `${post.metadata?.slice(0, 136)}...`,
+      description: post.metadata ? String(post.metadata).slice(0, 136) + '...' : 'No description available',
       author: authorName,
 
       robots: {
@@ -49,7 +49,7 @@ export default async function Post(props: Props) {
   const posts = getAllPosts(["title", "date", "excerpt", "coverImage", "slug", "order"]);
 
   const post = getPostBySlug(params.slug, ["title", "author", "content"]);
-  const content = await markdownToHtml(post.content || "");
+  const content = await markdownToHtml((post.content as string) || "");
 
   return (
     <>

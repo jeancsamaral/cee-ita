@@ -10,7 +10,11 @@ export function getAllPosts(fields: string[] = []) {
     .filter((slug) => slug.endsWith('.mdx'))
     .map((slug) => getPostBySlug(slug.replace(/\.mdx$/, ''), fields))
     // Sort posts by order field
-    .sort((post1, post2) => (post1.order > post2.order ? 1 : -1));
+    .sort((post1, post2) => {
+      const order1 = post1.order ?? 0;
+      const order2 = post2.order ?? 0;
+      return order1 > order2 ? 1 : -1;
+    });
 
   return posts;
 }
@@ -21,7 +25,7 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
   const { data, content } = matter(fileContents);
 
   type Items = {
-    [key: string]: string | number;
+    [key: string]: string | number | undefined;
   };
 
   const items: Items = {};
@@ -32,9 +36,11 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
       items[field] = slug;
     }
     if (field === 'content') {
-      items[field] = content;
+      items[field] = content || '';
     }
-    if (data[field]) {
+    if (field === 'metadata' && data[field]) {
+      items[field] = String(data[field]);
+    } else if (data[field]) {
       items[field] = data[field];
     }
   });

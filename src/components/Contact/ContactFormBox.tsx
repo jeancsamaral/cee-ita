@@ -2,7 +2,11 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-const ContactFormBox = () => {
+interface ContactFormBoxProps {
+  formId?: string;
+}
+
+const ContactFormBox = ({ formId }: ContactFormBoxProps) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",

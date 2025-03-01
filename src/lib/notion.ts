@@ -57,7 +57,22 @@ export const fetchBySlug = React.cache(async (slug: string) => {
             return undefined;
         }
 
-        return response.results[0] as NotionPage;
+        const page = response.results[0] as PageObjectResponse;
+        const notionPage: NotionPage = {
+            id: page.id,
+            created_time: page.created_time,
+            properties: {
+                Title: page.properties.Title as NotionPage['properties']['Title'],
+                Description: page.properties.Description as NotionPage['properties']['Description'],
+                slug: page.properties.slug as NotionPage['properties']['slug'],
+                Author: page.properties.Author as NotionPage['properties']['Author'],
+                Tags: page.properties.Tags as NotionPage['properties']['Tags'],
+                Date: page.properties.Date as NotionPage['properties']['Date'],
+                cover: page.properties.cover as NotionPage['properties']['cover'],
+            }
+        };
+
+        return notionPage;
     } catch (error) {
         console.error('Error in fetchBySlug:', {
             error,
