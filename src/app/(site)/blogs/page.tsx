@@ -72,15 +72,7 @@ export default async function BlogPage() {
             }
           </div>
         </div>
-      <div className="container mt-10">
-        <div className="flex justify-center">
-          <pre className="bg-gray-100 p-4 rounded-lg overflow-x-auto max-w-full">
-            <code>
-              {JSON.stringify(posts, null, 2)}
-            </code>
-          </pre>
-        </div>
-      </div>
+      
       
       </section>
     </>
