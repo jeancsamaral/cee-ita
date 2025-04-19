@@ -2,14 +2,6 @@
 
 const nextConfig = {
   images: {
-    domains: [
-      'prod-files-secure.s3.us-west-2.amazonaws.com',
-      "localhost",
-      'img.youtube.com',
-      'images.unsplash.com',
-      's3.us-west-2.amazonaws.com',
-      'secure.notion-static.com',
-    ],
     remotePatterns: [
       {
         protocol: "https",
@@ -26,6 +18,26 @@ const nextConfig = {
         hostname: "secure.notion-static.com",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "img.youtube.com",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "s3.us-west-2.amazonaws.com",
+        port: "",
+      },
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "",
+      }
     ],
   },
 };
