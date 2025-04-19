@@ -21,7 +21,6 @@
     "bcrypt": "^5.1.1",
     "date-fns": "^3.3.1",
     "dotenv": "^16.4.7",
-    "formbold-react": "^1.0.4",
     "framer-motion": "^12.4.7",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.486.0",
