@@ -1,7 +1,8 @@
-import AboutStyleThree from "@/components/AboutStyleThree";
+import AboutFair from "@/components/AboutFair";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import NewsLatter from "@/components/Newslatter";
 import Video from "@/components/Video";
+import TimelineFeiras from "@/components/TimelineFeiras";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -17,7 +18,9 @@ const FairPage = () => {
         pageName="Sobre a CEE"
         description="O Centro de Carreiras dos alunos do ITA. Promovemos a conexão entre os estudantes e a iniciativa privada através de eventos e oportunidades acadêmicas exclusivas."
       />
-      <AboutStyleThree />
+      <AboutFair />
+
+      <TimelineFeiras />
 
       <Video />
 
