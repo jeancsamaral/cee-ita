@@ -21,7 +21,7 @@
     "bcrypt": "^5.1.1",
     "date-fns": "^3.3.1",
     "dotenv": "^16.4.7",
-    "formbold-react": "^1.0.5",
+    "formbold-react": "^1.0.4",
     "framer-motion": "^12.4.7",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.486.0",
@@ -66,5 +66,9 @@
   "overrides": {
     "@types/react": "npm:types-react@19.0.0-rc.1",
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
+  },
+  "resolutions": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   }
 }
