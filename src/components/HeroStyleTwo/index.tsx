@@ -11,11 +11,11 @@ const graphic_1 = (
   >
     <path
       d="M15.1447 38.4075C12.8871 36.6783 12.1789 34.5187 12.075 33.2558C12.0477 32.9248 12.2201 32.6217 12.4921 32.4361C22.7172 25.4576 40.4652 22.6124 48.1583 22.0605C39.3208 26.5473 21.1393 35.8224 16.2497 38.4792C15.8941 38.6723 15.4672 38.6545 15.1447 38.4075Z"
-      fill="#4A6CF7"
+      fill="#FF0000"
     />
     <path
       d="M3.57399 32.348L0.342285 28.897C-0.0725511 28.454 -0.0472251 27.7504 0.389887 27.3325C15.9388 12.4668 22.1342 3.47906 23.9909 0.708984C20.6081 15.1249 10.4233 27.3933 5.06638 32.4146C4.63824 32.8159 3.97658 32.7779 3.57399 32.348Z"
-      fill="#4A6CF7"
+      fill="#FF0000"
     />
   </svg>
 );
@@ -69,8 +69,8 @@ const graphic_2 = (
         y2="423.828"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stopColor="#4A6CF7" stopOpacity="0" />
-        <stop offset="1" stopColor="#4A6CF7" />
+        <stop stopColor="#FF0000" stopOpacity="0" />
+        <stop offset="1" stopColor="#FF0000" />
       </linearGradient>
       <linearGradient
         id="paint1_linear_1003_1645"
@@ -80,8 +80,8 @@ const graphic_2 = (
         y2="423.828"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stopColor="#4A6CF7" stopOpacity="0" />
-        <stop offset="1" stopColor="#4A6CF7" />
+        <stop stopColor="#FF0000" stopOpacity="0" />
+        <stop offset="1" stopColor="#FF0000" />
       </linearGradient>
       <linearGradient
         id="paint2_linear_1003_1645"
@@ -91,8 +91,8 @@ const graphic_2 = (
         y2="423.828"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stopColor="#4A6CF7" stopOpacity="0" />
-        <stop offset="1" stopColor="#4A6CF7" />
+        <stop stopColor="#FF0000" stopOpacity="0" />
+        <stop offset="1" stopColor="#FF0000" />
       </linearGradient>
       <linearGradient
         id="paint3_linear_1003_1645"
@@ -102,8 +102,8 @@ const graphic_2 = (
         y2="423.828"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stopColor="#4A6CF7" stopOpacity="0" />
-        <stop offset="1" stopColor="#4A6CF7" />
+        <stop stopColor="#FF0000" stopOpacity="0" />
+        <stop offset="1" stopColor="#FF0000" />
       </linearGradient>
       <linearGradient
         id="paint4_linear_1003_1645"
@@ -113,8 +113,8 @@ const graphic_2 = (
         y2="423.828"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stopColor="#4A6CF7" stopOpacity="0" />
-        <stop offset="1" stopColor="#4A6CF7" />
+        <stop stopColor="#FF0000" stopOpacity="0" />
+        <stop offset="1" stopColor="#FF0000" />
       </linearGradient>
       <linearGradient
         id="paint5_linear_1003_1645"
@@ -124,8 +124,8 @@ const graphic_2 = (
         y2="423.828"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stopColor="#4A6CF7" stopOpacity="0" />
-        <stop offset="1" stopColor="#4A6CF7" />
+        <stop stopColor="#FF0000" stopOpacity="0" />
+        <stop offset="1" stopColor="#FF0000" />
       </linearGradient>
     </defs>
   </svg>

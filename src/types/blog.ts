@@ -29,6 +29,7 @@ export type Blog = {
   };
   tags: string[];
   publishedAt: string;
+  tipo?: string;
 };
 
 // export type BlogTwo = {

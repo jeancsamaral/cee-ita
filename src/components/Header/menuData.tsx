@@ -21,16 +21,24 @@ const menuData: Menu[] = [
   },
   {
     id: 34,
-    title: "Contato",
-    path: "/contact",
+    title: "Treinamentos e Eventos",
+    path: "/blogs-2",
     newTab: false,
   },
   {
     id: 34,
-    title: "Feira",
+    title: "Feira de Carreiras",
     path: "/job-fair",
     newTab: false,
-  }
+  },
+  {
+    id: 34,
+    title: "Contato",
+    path: "/contact",
+    newTab: false,
+  },
+  
+
   /*{
     id: 3,
     title: "Documentação",

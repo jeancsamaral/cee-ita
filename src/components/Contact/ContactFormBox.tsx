@@ -41,6 +41,9 @@ const ContactFormBox = ({ formId }: ContactFormBoxProps) => {
       const message = error instanceof Error ? error.message : "Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente.";
       setError(message);
       console.error('Error details:', error);
+      if (error instanceof Error && (error as any).details) {
+        console.error('Additional error details:', (error as any).details);
+      }
     } finally {
       setIsSubmitting(false);
     }

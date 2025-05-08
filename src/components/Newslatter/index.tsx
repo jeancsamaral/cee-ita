@@ -1,3 +1,7 @@
+"use client";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+
 const graphic_1 = (
   <svg
     width="264"
@@ -221,6 +225,45 @@ const graphic_2 = (
 );
 
 const NewsLatter = () => {
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
+  const router = useRouter();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: "Newsletter Subscriber",
+          email: email,
+          message: "Quer receber mais informações sobre vagas e assinou a newsletter"
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Erro ao realizar inscrição");
+      }
+
+      router.push("/mail-success");
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Ocorreu um erro ao realizar sua inscrição. Por favor, tente novamente.";
+      setError(message);
+      console.error('Error details:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section>
       <div className="container">
@@ -233,18 +276,31 @@ const NewsLatter = () => {
               Não perca as últimas atualizações, eventos e oportunidades. Assine nossa newsletter e receba informações exclusivas!
             </p>
 
-            <div className="relative items-center justify-between rounded-sm sm:flex">
+            <form onSubmit={handleSubmit} className="relative items-center justify-between rounded-sm sm:flex">
               <input
                 type="email"
                 name="news-latter"
                 id="news-latter"
                 placeholder="Digite seu endereço de e-mail"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
                 className="mb-5 w-full rounded-sm border border-transparent bg-white px-6 py-3.5 shadow-three outline-none duration-300 focus:border-primary dark:bg-[#2C303B] dark:shadow-two sm:mb-0 sm:py-5 sm:pr-36"
               />
-              <button className="right-2.5 top-1/2 rounded-sm bg-primary px-6 py-3 text-center text-base font-medium text-white sm:absolute sm:-translate-y-1/2">
-                Assinar
+              <button 
+                type="submit"
+                disabled={isSubmitting}
+                className="right-2.5 top-1/2 rounded-sm bg-primary px-6 py-3 text-center text-base font-medium text-white sm:absolute sm:-translate-y-1/2 disabled:opacity-70"
+              >
+                {isSubmitting ? "Enviando..." : "Assinar"}
               </button>
-            </div>
+            </form>
+
+            {error && (
+              <div className="mt-4 text-red-500">
+                {error}
+              </div>
+            )}
 
             <div className="absolute left-0 top-0 -z-10 h-full w-full dark:bg-[#1D2430]"></div>
             <div className="absolute left-0 top-0 -z-10">{graphic_1}</div>

@@ -1,4 +1,3 @@
-import { imageBuilder } from "@/sanity/sanity-utils";
 import { Blog } from "@/types/blog";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,7 +10,7 @@ const SingleBlogStyleTwo = ({ blog }: { blog: Blog }) => {
       <div className="relative block h-[230px] overflow-hidden">
         <Link href={`/blogs-2/${slug.current}`}>
           <Image
-            src={imageBuilder(mainImage).url()}
+            src={mainImage}
             alt={title}
             fill
             className="object-cover object-center transition-all duration-300 group-hover:rotate-3 group-hover:scale-110"
@@ -39,7 +38,7 @@ const SingleBlogStyleTwo = ({ blog }: { blog: Blog }) => {
               href={`/blogs-2/${slug.current}`}
               className="text-xl font-semibold text-black duration-300 hover:text-primary dark:text-white dark:hover:text-primary"
             >
-              {`${title.slice(0, 50)}...`}
+              {`${title.slice(0, 50)}`}
             </Link>
           </h3>
         </div>

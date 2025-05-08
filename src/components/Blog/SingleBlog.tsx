@@ -4,7 +4,7 @@ import { Blog } from "@/types/blog";
 import { imageBuilder } from "@/sanity/sanity-utils";
 
 export default function SingleBlog({ blog }: { blog: Blog }) {
-  const { title, mainImage, slug, metadata, author, tags, publishedAt } = blog;
+  const { title, mainImage, slug, metadata, author, tags, publishedAt, tipo } = blog;
 
   // Function to get image source
   const getImageSrc = (image: any) => {
@@ -78,6 +78,13 @@ export default function SingleBlog({ blog }: { blog: Blog }) {
               </p>
             </div>
           </div>
+          {tipo && (
+            <div className="mt-4">
+              <span className="inline-block rounded-full bg-blue-900/10 px-3 py-1 text-xs font-medium text-black">
+                {tipo}
+              </span>
+            </div>
+          )}
           {tags && tags.length > 0 && (
             <div className="mt-4 flex flex-wrap gap-2">
               {tags.map((tag, index) => (

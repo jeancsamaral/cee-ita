@@ -80,7 +80,7 @@ const Header = () => {
                 } `}
               >
                 <Image
-                  src="/images/logo/logo-cee.png"
+                  src="/images/logo/logo-cee-white.png"
                   alt="logo"
                   width={154}
                   height={33}
@@ -198,7 +198,7 @@ const Header = () => {
                   </>
                 ) : (
                   <>
-                    <Link
+                    {/*<Link
                       href="/auth/signin"
                       className="hidden px-7 py-3 text-base font-medium text-dark hover:opacity-70 dark:text-white md:block"
                     >
@@ -209,7 +209,7 @@ const Header = () => {
                       className="ease-in-up hidden rounded-sm bg-primary px-8 py-3 text-base font-medium text-white shadow-btn transition duration-300 hover:bg-opacity-90 hover:shadow-btn-hover md:block md:px-9 lg:px-6 xl:px-9"
                     >
                       Registrar
-                    </Link>
+                    </Link>*/}
                   </>
                 )}
                 <div>

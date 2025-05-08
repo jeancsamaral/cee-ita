@@ -8,6 +8,7 @@ const mailerSend = new MailerSend({
 
 // Add debug logging for API key
 console.log('MailerSend API Key present:', !!process.env.MAILERSEND_API_KEY);
+console.log('MailerSend API Key length:', process.env.MAILERSEND_API_KEY?.length);
 
 export async function POST(request: Request) {
   console.log("API Key:", process.env.MAILERSEND_API_KEY);
@@ -57,8 +58,8 @@ export async function POST(request: Request) {
 
     console.log('Attempting to send email with data:', { name, email });
 
-    // Create sender and recipients using the trial domain
-    const sentFrom = new Sender("contato@trial-z3m5jgr3yezgdpyo.mlsender.net", "Site CEE ITA");
+    // Create sender and recipients
+    const sentFrom = new Sender("contato@test-yxj6lj993714do2r.mlsender.net", "Site CEE ITA");
     const recipients = [
       new Recipient("jeancarlosimpliamaral@gmail.com", "Jean Carlo")
     ];
@@ -76,7 +77,8 @@ export async function POST(request: Request) {
         <p><strong>Nome:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Mensagem:</strong></p>
-        <p>${message}</p>      `)
+        <p>${message}</p>
+      `)
       .setText(`
         Mensagem da página CEE ITA
         
@@ -92,26 +94,48 @@ export async function POST(request: Request) {
       // Send the email
       const response = await mailerSend.email.send(emailParams);
       console.log('Email sent successfully:', response);
+      return Response.json(
+        { message: "Email enviado com sucesso!" },
+        { status: 200 }
+      );
     } catch (sendError) {
       console.error('MailerSend API Error:', sendError);
+      
+      // Prepare error details
+      const errorDetails = {
+        message: 'Erro desconhecido',
+        details: {} as Record<string, unknown>
+      };
+
       if (sendError instanceof Error) {
-        console.error('Error details:', {
+        errorDetails.message = sendError.message;
+        errorDetails.details = {
           name: sendError.name,
-          message: sendError.message,
-          stack: sendError.stack
-        });
+          stack: sendError.stack,
+          ...(sendError as any)
+        };
+        
+        // Try to get more details from the error response
+        if ((sendError as any).response) {
+          errorDetails.details.response = {
+            status: (sendError as any).response?.status,
+            statusText: (sendError as any).response?.statusText,
+            data: (sendError as any).response?.data
+          };
+        }
       }
-      // Return a more specific error instead of throwing
+
+      // Log the full error details
+      console.error('Full error details:', errorDetails);
+
       return Response.json(
-        { message: `Erro ao enviar email: ${sendError instanceof Error ? sendError.message : 'Erro desconhecido'}` },
+        { 
+          message: `Erro ao enviar email: ${errorDetails.message}`,
+          details: errorDetails.details
+        },
         { status: 500 }
       );
     }
-
-    return Response.json(
-      { message: "Email enviado com sucesso!" },
-      { status: 200 }
-    );
   } catch (error) {
     // Log complete error information
     console.error("API Error Details:");
@@ -131,7 +155,7 @@ export async function POST(request: Request) {
     }
 
     return Response.json(
-      { message: "An error occurred while processing your request" },
+      { message: "Ocorreu um erro ao processar sua solicitação. Por favor, tente novamente." },
       { status: 500 }
     );
   }
