@@ -11,6 +11,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import { useState } from "react";
 import SearchPosts from "@/components/Blog/SearchPosts";
+import Link from "next/link";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -234,44 +235,44 @@ export default async function PostDetail(props: Props) {
                 </h3>
                 <ul className="px-8 py-6">
                   <li>
-                    <a
+                    <Link
                       href="/blogs"
                       className="mb-3 inline-block text-base text-body-color hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Painel de Vagas
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="/about"
                       className="mb-3 inline-block text-base text-body-color hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Sobre o CEE
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="/contact"
                       className="mb-3 inline-block text-base text-body-color hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Contato
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="/services"
                       className="mb-3 inline-block text-base text-body-color hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Nossos Serviços
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="/team"
                       className="mb-3 inline-block text-base text-body-color hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
                       Nossa Equipe
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
