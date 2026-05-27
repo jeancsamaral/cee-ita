@@ -4,7 +4,7 @@ const faqData: Faq[] = [
   {
     id: 1,
     ques: "O que é a CEE?",
-    ans: "A CEE (Comunidade de Experiência Estudantil) é uma organização estudantil que tem como objetivo conectar alunos ao mercado de trabalho, oferecendo capacitação, eventos e oportunidades de networking com grandes empresas.",
+    ans: "A CEE (Comissão de Estágios e Empregos) é uma organização estudantil que tem como objetivo conectar alunos ao mercado de trabalho, oferecendo capacitação, eventos e oportunidades de networking com grandes empresas.",
   },
   {
     id: 2,
